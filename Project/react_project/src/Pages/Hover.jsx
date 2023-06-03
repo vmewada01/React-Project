@@ -53,7 +53,7 @@ const HighlightedDiv = () => {
         return (
           <>
             <Box
-             
+             boxShadow='lg' p='6' rounded='md' bg='white'
               transition="transform 0.3s"
               _hover={{ transform: "scale(1.1)" }}
               textAlign='center'

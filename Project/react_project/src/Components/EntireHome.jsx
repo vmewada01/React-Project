@@ -3,6 +3,7 @@ import ImageWithContent from "../Pages/Home";
 import { Box, Button, Heading, Text, VStack } from "@chakra-ui/react";
 import HighlightedDiv from "../Pages/Hover";
 import Footer from "../Footer/Footer";
+import { NavLink } from "react-router-dom";
 
 const EntireHome = () => {
   return (
@@ -76,7 +77,9 @@ const EntireHome = () => {
             textAlign="center"
           >
             {" "}
+            <NavLink key="products" to="/products">
             SHOP NOW
+            </NavLink>
           </Button>
 
           <img
@@ -114,7 +117,9 @@ const EntireHome = () => {
             textAlign="center"
           >
             {" "}
+            <NavLink key="products" to="/products">
             SHOP NOW
+            </NavLink>
           </Button>
 
           <img
@@ -152,7 +157,9 @@ const EntireHome = () => {
             textAlign="center"
           >
             {" "}
+            <NavLink key="products" to="/products">
             SHOP NOW
+            </NavLink>
           </Button>
 
           <img
@@ -191,7 +198,9 @@ https://images.unsplash.com/photo-1683183191178-58a299409692?ixlib=rb-4.0.3&ixid
             textAlign="center"
           >
             {" "}
+            <NavLink key="products" to="/products">
             SHOP NOW
+            </NavLink>
           </Button>
           <img
             src="

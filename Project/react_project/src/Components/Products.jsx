@@ -1,10 +1,10 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 const items = [
     {
       id: 1,
-      url: "https://www.tannergoods.com/cdn/shop/products/Tanner-Goods-Cognac-Journeyman-Lifestyle-01.jpg?v=1678833017&width=540",
+      url: "https://www.tannergoods.com/cdn/shop/products/journeyman_saddle_tan_2020_thumb_01.jpg?v=1629492879&width=540",
       heading: "Utility Bifold - Natural",
       brand: "TANNER GOODS",
       price: 125.0
@@ -25,7 +25,7 @@ const items = [
     },
     {
       id: 4,
-      url: "https://www.tannergoods.com/cdn/shop/files/Tanner-Goods-Crossbody-Tan-Lifestyle-Bike-Lifestyle-01.jpg?v=1683135646&width=540",
+      url: "https://www.tannergoods.com/cdn/shop/products/Canyon-Crossbody-Tan-Front.jpg?v=1670992121&width=540",
       heading: "Cany Crossbody Pack - Utility Tan",
       brand: "TANNER GOODS",
       price: 100.0
@@ -39,7 +39,7 @@ const items = [
     },
     {
       id: 6,
-      url: "https://www.tannergoods.com/cdn/shop/products/Tanner-Goods-Natural-Journeyman-Lifestyle-03.jpg?v=1678828752&width=540",
+      url: "https://www.tannergoods.com/cdn/shop/products/workman_natural_2015_thumb_046fdfe5-34a2-490d-ae8d-12ca2dbbb340.jpeg?v=1597256031&width=540",
       heading: "Utility Cognac",
       brand: "MAZAMA",
       price: 40.0
@@ -224,7 +224,36 @@ const Products = () => {
 
   return (
     <Box>
-     <Heading>hii</Heading>
+    <Box position='relative' marginBottom="3rem"><Image src="https://images.unsplash.com/photo-1497907392684-e724aae1b42b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" alt='img' width='100%' />
+    <Heading
+     position="absolute"
+     top="50%"
+     left="10%"
+     color="white"
+    >T A N N E R _ G O O D S</Heading>
+    <Heading
+    position="absolute"
+    top="70%"
+    left="10%"
+    color="white"
+    >Father's Day Gift Shop</Heading>
+    </Box>
+    <Box display='grid' gridTemplateRows='repeat(3,1fr)' gridTemplateColumns='repeat(3,1fr)' gap='3rem' >
+     {items.map((abc)=>{
+        return (
+            <Box key={abc.id} margin='auto' textAlign='center' transition="transform 0.3s"
+            _hover={{ transform: "scale(1.1)" }}
+            boxShadow='lg' p='6' rounded='md' bg='white'
+            >
+             <Box ><Image src={abc.url} alt="img" width='300px' /></Box>
+            <Box>{abc.heading}</Box>
+            <Box>{abc.brand}</Box>
+            <Box>$ {abc.price}</Box>
+            <Box><Button>BUY NOW</Button></Box>
+            </Box>
+        )
+     })}
+     </Box>
     </Box>
   );
 };
