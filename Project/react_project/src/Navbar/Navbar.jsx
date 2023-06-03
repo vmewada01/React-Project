@@ -1,9 +1,15 @@
-import React from 'react'
+
+import React from "react";
+import TopNavbar from "./TopNavbar";
+import BottomNavbar from "./BottomNavbar";
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+       <>
+       <TopNavbar />
+       <BottomNavbar/>
+       </>
+  );
+};
 
-export default Navbar
+export default Navbar;
