@@ -1,6 +1,6 @@
 import { Box, Button, FormControl, FormErrorMessage, FormHelperText, FormLabel, Heading, Input } from "@chakra-ui/react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -29,12 +29,12 @@ const Login = () => {
     const isPassword = password === "";
   
     return (
-      <Box display='flex' flexDirection='column' width='70%' justifyContent='center' alignContent='center' alignItems='center' margin='auto'>
+      <Box  display='flex' flexDirection='column' width='70%' justifyContent='center' alignContent='center' alignItems='center' margin='auto'>
         <Heading>Login</Heading>
         <form onSubmit={handleSubmit}>
   
           <FormControl isInvalid={isError}>
-            <FormLabel>User Details</FormLabel>
+            <FormLabel>E M A I L</FormLabel>
             <Input
               type="username"
               value={username}
@@ -47,6 +47,7 @@ const Login = () => {
             ) : (
               <FormErrorMessage>Email is required.</FormErrorMessage>
             )}
+             <FormLabel>P A S S W O R D</FormLabel>
             <Input
               type="password"
               value={password}
@@ -60,7 +61,11 @@ const Login = () => {
               <FormErrorMessage>password is required.</FormErrorMessage>
             )}
           </FormControl>
-          <Button type="submit">Login</Button>
+          <Button size='md' type="submit" color='white' bg='black'>S I G N _ I N </Button>
+          <br />
+          <br />
+       
+          <NavLink key="Signup" to="/signup"><FormLabel>Create Account</FormLabel></NavLink>
         </form>
       </Box>
     );

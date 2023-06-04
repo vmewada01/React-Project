@@ -13,7 +13,7 @@ import {
 
 
 import React from "react";
-import DrawerExample from "./DrawerExample";
+
 import { NavLink } from "react-router-dom";
 
 const BottomNavbar = () => {
@@ -35,7 +35,7 @@ const BottomNavbar = () => {
               </MenuButton>
               <MenuList>
                 <MenuItem minH="48px">
-                    <NavLink key='Products' to="/products">
+                    <NavLink key='Home' to="/">
                   <Image
                     boxSize="10rem"
                     borderRadius="full"
@@ -59,7 +59,7 @@ const BottomNavbar = () => {
                   </NavLink>
                 </MenuItem>
                 <MenuItem minH="40px">
-                <NavLink key='Products' to="/products">
+                <NavLink key='Home' to="/">
                   <Image
                     boxSize="10rem"
                     borderRadius="full"
@@ -71,7 +71,7 @@ const BottomNavbar = () => {
                   </NavLink>
                 </MenuItem>
                 <MenuItem minH="40px">
-                <NavLink key='Products' to="/products">
+                <NavLink key='Home' to="/">
                   <Image
                     boxSize="10rem"
                     borderRadius="full"
@@ -177,7 +177,8 @@ const BottomNavbar = () => {
           </Box>
 
           <Box>
-     <DrawerExample />
+         <NavLink key="cart" to="/cart"> Cart</NavLink>  
+   
             
             <Icon>
               <svg
