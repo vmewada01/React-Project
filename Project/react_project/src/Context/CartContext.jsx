@@ -13,12 +13,12 @@ export  function CartContextProvider({children}){
 
        const updatedCartItems = [...cartItem]
 
-  
+     const [count, setCount]= useState(0)
 //console.log(cart)
 
 
     return (
-        <CartContext.Provider value={{updatedCartItems, cartItem, setCartItem,product,setProducts}}>
+        <CartContext.Provider value={{updatedCartItems, cartItem, setCartItem,product,setProducts ,count, setCount}}>
             {children}
         </CartContext.Provider>
     )

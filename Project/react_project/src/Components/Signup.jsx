@@ -35,6 +35,8 @@ const Signup = () => {
 
   const navigate = useNavigate();
   const [indication, setIndication] = useState(false);
+ const [signupdata, setSignupData]= useState([])
+ const new_data_signup = [...signupdata]
 
   const handleUsernameChange = (event) => {
     const { first_name, last_name, email, password, name } = event.target;
@@ -44,18 +46,18 @@ const Signup = () => {
       [name]: event.target.value,
     });
   };
-
+ 
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Perform login logic here
+    setIndication(!indication)
     console.log(username);
-    setIndication(!indication);
-    
-    setInterval(()=>{
-        setUsername(initial)
-        navigate("/login")
-    },2000)
-    
+    new_data_signup.push(username)
+    setSignupData(new_data_signup)
+
+    localStorage.setItem("signupDATA", JSON.stringify(signupdata)) 
+ 
   };
     const isError1 = username.first_name === "";
     const isError2 = username.last_name === "";
@@ -161,6 +163,7 @@ const Signup = () => {
             <AlertDescription maxWidth="sm">
               Thanks for Creating  your account.
             </AlertDescription>
+            <Button onClick={()=> navigate("/login")} bg='green' color='white'>Move to login page</Button>
           </Alert>
         )}
       </form>
