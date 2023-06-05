@@ -25,12 +25,13 @@ const ImageWithContent = () => {
       <Image src={images[index]} alt="Sliding Image" width="100%" height="600px" />
     
       <Text
+       
         position="absolute"
         top="50%"
         left="30%"
         transform="translate(-50%, -50%)"
         color="white"
-        fontSize="24px"
+        fontSize="34px"
         fontWeight="bold"
         textAlign="center"
       >
@@ -38,12 +39,13 @@ const ImageWithContent = () => {
       </Text>
     <Button
      position="absolute"
+     
      top="60%"
      left="30%"
      transform="translate(-50%, -50%)"
      color="white"
      bg='rgb(177,105,67)'
-     fontSize="24px"
+     fontSize="34px"
      fontWeight="bold"
      textAlign="center"
     > EXPLORE NOW</Button>
