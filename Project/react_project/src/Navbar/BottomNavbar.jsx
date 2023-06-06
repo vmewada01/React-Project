@@ -11,10 +11,12 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-
+import { BsCartCheckFill } from "react-icons/bs";
 import React from "react";
-
+import { AiOutlineLogin } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import {  GrUserAdd } from "react-icons/gr";
+import { BsSearch } from "react-icons/bs";
 
 const BottomNavbar = () => {
   return (
@@ -123,16 +125,16 @@ const BottomNavbar = () => {
             <Menu>
             <NavLink key='Products' to="/products">
               <MenuButton variant="ghost" as={Button}>
-                Final Sale
+              Father's Day Gift
               </MenuButton>
               </NavLink>
             </Menu>
           </Box>
           <Box>
             <Menu>
-            <NavLink key='Products' to="/products">
+            <NavLink key='About' to="/about">
               <MenuButton variant="ghost" as={Button}>
-                Father's Day Gifts
+                About
               </MenuButton>
               </NavLink>
             </Menu>
@@ -140,71 +142,32 @@ const BottomNavbar = () => {
         </Box>
 
         <Box display="flex" gap="2rem" alignItems="center"  flexWrap="wrap">
+        <Box>
+         <Text fontSize='2xl'> search</Text>
+        <BsSearch />
+           
+          
+          </Box>
+        
           <Box>
             <NavLink key="login" to="/login">
-            User
-            <Icon>
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                role="presentation"
-                class="icon icon-user"
-                viewBox="0 0 256 256"
-                width="128"
-                height="128"
-              >
-                <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"></path>
-              </svg>
-            </Icon>
+            <Text fontSize='2xl'> login</Text>
+            <AiOutlineLogin />
+           
             </NavLink>
           </Box>
           <Box>
-            {" "}
-            Search
-            <Icon>
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                role="presentation"
-                class="icon icon-search"
-                viewBox="0 0 256 256"
-                width="128"
-                height="128"
-              >
-                <path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path>
-              </svg>
-            </Icon>
+          <NavLink key="login" to="/signup">
+          <Text fontSize='2xl'> Register</Text>
+            <GrUserAdd />
+          </NavLink>
           </Box>
 
           <Box>
-         <NavLink key="cart" to="/cart"> Cart</NavLink>  
-   
-            
-            <Icon>
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                role="presentation"
-                class="icon icon-bag-minimal"
-                viewBox="0 0 256 256"
-                width="128"
-                height="128"
-              >
-                <path
-                  stroke="null"
-                  id="svg_4"
-                  fill-opacity="null"
-                  stroke-opacity="null"
-                  fill="null"
-                  d="M11.375 17.863h41.25v36.75h-41.25z"
-                ></path>
-                <path
-                  stroke="null"
-                  id="svg_2"
-                  d="M22.25 18c0-7.105 4.35-9 9.75-9s9.75 1.895 9.75 9"
-                ></path>
-              </svg>
-            </Icon>
+         <NavLink key="cart" to="/cart">   
+         <Text fontSize='2xl'> Cart</Text>
+         <BsCartCheckFill />
+         </NavLink>
           </Box>
         </Box>
       </Box>

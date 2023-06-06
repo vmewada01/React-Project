@@ -47,7 +47,7 @@ const HighlightedDiv = () => {
   ];
 
   return (
-    <Box  height='700px' display="grid" gridTemplateRows="repeat(3,1fr)" gridTemplateColumns='repeat(3,1fr)' gap='2rem' justifyContent='center' alignItems='center' alignContent='center' marginLeft='3rem'>
+    <Box  overflow='hidden' height='700px' display="grid" gridTemplateRows="repeat(3,1fr)" gridTemplateColumns='repeat(3,1fr)' gap='2rem' justifyContent='center' alignItems='center' alignContent='center' marginLeft='3rem'>
        
       {items.map((abc) => {
         return (
@@ -57,6 +57,7 @@ const HighlightedDiv = () => {
               transition="transform 0.3s"
               _hover={{ transform: "scale(1.1)" }}
               textAlign='center'
+              
             >
              <Box> <Image src={abc.url} alt="Image" width="400px" height="250px" /></Box>
              <Box> <h3>{abc.heading}</h3></Box>

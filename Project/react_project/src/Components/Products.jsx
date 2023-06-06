@@ -31,6 +31,7 @@ import {
   PopoverTrigger,
   Text,
   useDisclosure,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../Context/CartContext";

@@ -41,16 +41,10 @@ const Checkout = () => {
       setDisabled(!disabled);
     }
   };
-
+  console.log(order)
   const placeOrderfun = () => {
     setOrder(!order);
-  const id=  setInterval(() => {
-      navigate("/")
-    }, 5000);
-
-    clearInterval((id)=>{
-      clearTimeout(id)
-    })
+    console.log(order)
 
   };
 
@@ -65,27 +59,7 @@ const Checkout = () => {
       boxShadow="rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"
     >
       <div>
-        {order && (
-          <Alert
-            status="success"
-            variant="subtle"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-            height="200px"
-          >
-            <AlertIcon boxSize="40px" mr={0} />
-            <AlertTitle mt={4} mb={1} fontSize="lg">
-              Order Placed ..!!
-            </AlertTitle>
-            <AlertDescription maxWidth="sm">
-              You can track your order on our the give
-              link:"https://www.bluedart.com/tracking"
-            </AlertDescription>
-          </Alert>
-        )}
-
+       
         <div>
           <div>
             <h4>
@@ -129,7 +103,7 @@ const Checkout = () => {
               <div>
                 <div>
                   <Text fontSize="2xl">First name</Text>
-                  <input type="text" placeholder="" value="" required="" />
+                  <input type="text" placeholder="Enter your first name..!!"  required="" />
                   <div>Valid first name is required.</div>
                 </div>
 
@@ -138,8 +112,8 @@ const Checkout = () => {
                   <input
                     type="text"
                     id="lastName"
-                    placeholder=""
-                    value=""
+                    placeholder="Enter your last name..!!"
+                 
                     required=""
                   />
                   <div>Valid last name is required.</div>
@@ -212,6 +186,10 @@ const Checkout = () => {
                   <select id="state" required="">
                     <option value="">Choose...</option>
                     <option>California</option>
+                    <option>MP</option>
+                    <option>UP</option>
+                    <option>RAJASTHAN</option>
+                    <option>Chicago</option>
                   </select>
                   <div>Please provide a valid state.</div>
                 </div>
@@ -245,7 +223,7 @@ const Checkout = () => {
                     id="credit"
                     name="paymentMethod"
                     type="radio"
-                    checked=""
+                 
                     required=""
                   />
                   <Text>Credit card</Text>
@@ -256,6 +234,7 @@ const Checkout = () => {
                     name="paymentMethod"
                     type="radio"
                     required=""
+               
                   />
                   <Text htmlFor="debit">Debit card</Text>
                 </div>
@@ -314,6 +293,28 @@ const Checkout = () => {
               <Button bg="green" color="white" onClick={placeOrderfun}>
                 Place Order
               </Button>
+              {order && (
+          <Alert
+            status="success"
+            variant="subtle"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            textAlign="center"
+            height="200px"
+          >
+            <AlertIcon boxSize="40px" mr={0} />
+            <AlertTitle mt={4} mb={1} fontSize="lg">
+              Order Placed ..!!
+            </AlertTitle>
+            <AlertDescription maxWidth="sm">
+              You can track your order on our the give
+              link:"https://www.bluedart.com/tracking"
+            </AlertDescription>
+            <Button bg='green' color='white' onClick={()=> navigate("/")}>Move to Home Page</Button>
+          </Alert>
+        )}
+
             </form>
           </div>
         </div>

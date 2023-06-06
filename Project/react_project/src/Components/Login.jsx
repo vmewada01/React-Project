@@ -8,16 +8,20 @@ import {
   Heading,
   Input,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [indicate, setIndicate] = useState(true);
+ 
+  const {auth, setAuth} = useContext(CartContext)
 
   const navigate = useNavigate();
-  const [indication, setIndication] = useState(false);
+  //  console.log(auth)
+  //  console.log(typeof setAuth)
+
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -34,20 +38,20 @@ const Login = () => {
     for (let i = 0; i < data_sig.length; i++) {
       if (data_sig[i].email === username && data_sig[i].password) {
         alert("LOGIN SUCCESSFULL");
-
+         setAuth(false)
         navigate("/products");
-        setIndicate(!indicate);
+     
       }
     }
- 
+  
   };
-
 
   const isError = username === "";
   const isPassword = password === "";
 
   return (
     <Box
+      padding='1rem'
       display="flex"
       flexDirection="column"
       width="70%"
@@ -55,12 +59,15 @@ const Login = () => {
       alignContent="center"
       alignItems="center"
       margin="auto"
+      boxShadow="rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"
     >
       <Heading>Login</Heading>
       <form>
         <FormControl isInvalid={isError}>
           <FormLabel>E M A I L</FormLabel>
           <Input
+          htmlSize={25} width='auto'
+            size='lg'
             type="username"
             value={username}
             onChange={handleUsernameChange}
@@ -74,6 +81,8 @@ const Login = () => {
           )}
           <FormLabel>P A S S W O R D</FormLabel>
           <Input
+           htmlSize={25} width='auto'
+            size='lg'
             type="password"
             value={password}
             onChange={handlePasswordChange}
@@ -88,6 +97,7 @@ const Login = () => {
         </FormControl>
         <Button
           onClick={handleSubmit}
+
           size="md"
           type="submit"
           color="white"
@@ -106,4 +116,5 @@ const Login = () => {
   );
 };
 
-export default Login;
+
+export default Login

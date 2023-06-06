@@ -13,9 +13,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <ChakraProvider>
+  
       <CartContextProvider>
     <App />
     </CartContextProvider>
+
     </ChakraProvider>
     </BrowserRouter>
   </React.StrictMode>

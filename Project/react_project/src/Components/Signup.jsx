@@ -21,22 +21,23 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { FaFacebookF } from "react-icons/fa";
+import { GrGoogle } from "react-icons/gr";
 
-const initial={
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-}
-
+const initial = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  password: "",
+};
 
 const Signup = () => {
   const [username, setUsername] = useState(initial);
 
   const navigate = useNavigate();
   const [indication, setIndication] = useState(false);
- const [signupdata, setSignupData]= useState([])
- const new_data_signup = [...signupdata]
+  const [signupdata, setSignupData] = useState([]);
+  const new_data_signup = [...signupdata];
 
   const handleUsernameChange = (event) => {
     const { first_name, last_name, email, password, name } = event.target;
@@ -46,28 +47,25 @@ const Signup = () => {
       [name]: event.target.value,
     });
   };
- 
- 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Perform login logic here
-    setIndication(!indication)
+    setIndication(!indication);
     console.log(username);
-    new_data_signup.push(username)
-    setSignupData(new_data_signup)
+    new_data_signup.push(username);
+    setSignupData(new_data_signup);
 
-    localStorage.setItem("signupDATA", JSON.stringify(signupdata)) 
- 
+    localStorage.setItem("signupDATA", JSON.stringify(signupdata));
   };
-    const isError1 = username.first_name === "";
-    const isError2 = username.last_name === "";
-    const isError3 = username.email === "";
-    const isError4 = username.password === "";
+  const isError1 = username.first_name === "";
+  const isError2 = username.last_name === "";
+  const isError3 = username.email === "";
+  const isError4 = username.password === "";
 
-   
-     
   return (
     <Box
+     boxShadow=' rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px'
       display="flex"
       flexDirection="column"
       width="70%"
@@ -75,12 +73,26 @@ const Signup = () => {
       alignContent="center"
       alignItems="center"
       margin="auto"
+      gap='1rem'
+      padding='1rem'
     >
       <Heading>Sign Up</Heading>
+     
+      <Button color="white" bg="green" variant="primary w-100 mb-4">
+        <GrGoogle /> Sign Up with Google
+      </Button>
+   
+      <Button color="white" bg="green" variant="primary w-100 mb-4">
+        <FaFacebookF /> Sign Up with Facebook
+      </Button>
+   
+
       <form onSubmit={handleSubmit}>
         <FormControl isInvalid={isError1}>
           <FormLabel>F I R S T _ N A M E</FormLabel>
           <Input
+            htmlSize={25}
+            width="auto"
             type="username"
             name="first_name"
             value={username.first_name}
@@ -91,11 +103,13 @@ const Signup = () => {
           ) : (
             <FormErrorMessage>Name is required.</FormErrorMessage>
           )}
-              </FormControl>
-              <FormControl isInvalid={isError2}>
+        </FormControl>
+        <FormControl isInvalid={isError2}>
           <FormLabel>L A S T _ N A M E</FormLabel>
-          
+
           <Input
+            htmlSize={25}
+            width="auto"
             type="username"
             name="last_name"
             value={username.last_name}
@@ -110,6 +124,8 @@ const Signup = () => {
         <FormControl isInvalid={isError3}>
           <FormLabel>E M A I L</FormLabel>
           <Input
+            htmlSize={25}
+            width="auto"
             type="useremail"
             name="email"
             value={username.email}
@@ -122,10 +138,12 @@ const Signup = () => {
           ) : (
             <FormErrorMessage>Email is required.</FormErrorMessage>
           )}
-                 </FormControl>
-                 <FormControl isInvalid={isError4}>
+        </FormControl>
+        <FormControl isInvalid={isError4}>
           <FormLabel>P A S S W O R D</FormLabel>
           <Input
+            htmlSize={25}
+            width="auto"
             type="password"
             name="password"
             value={username.password}
@@ -138,8 +156,7 @@ const Signup = () => {
           ) : (
             <FormErrorMessage>password is required.</FormErrorMessage>
           )}
-          </FormControl>
-    
+        </FormControl>
 
         <Button size="md" type="submit" color="white" bg="black">
           {" "}
@@ -161,9 +178,11 @@ const Signup = () => {
               Account Created Successfully !
             </AlertTitle>
             <AlertDescription maxWidth="sm">
-              Thanks for Creating  your account.
+              Thanks for Creating your account.
             </AlertDescription>
-            <Button onClick={()=> navigate("/login")} bg='green' color='white'>Move to login page</Button>
+            <Button onClick={() => navigate("/login")} bg="green" color="white">
+              Move to login page
+            </Button>
           </Alert>
         )}
       </form>
@@ -172,4 +191,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

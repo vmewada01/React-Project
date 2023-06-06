@@ -7,14 +7,19 @@ import {
   Image,
   Input,
   Icon,
+  useMediaQuery,
 } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
+import styles from "../Styles/Sliding.module.css"
 
 const Footer = () => {
+
+
   return (
-    <Box  color="black">
-      <Box maxW="1200px" mx="auto" py="8" px="4">
-        <Flex justifyContent="space-between">
-          <Box width={["100%", "50%"]} mb={["6", "0"]} mr='2rem'>
+    <Box className={styles.mediaquery}  color="black">
+      <Box overflow='hidden' maxW="1200px" mx="auto" py="8" px="4">
+        <Flex  justifyContent="space-between">
+          <Box overflow='hidden' width={["100%", "50%"]} mb={["6", "0"]} mr='2rem'>
             <Text fontSize="xl" fontWeight="bold" mb="4">
               TANNER GOODS
             </Text>
@@ -26,13 +31,15 @@ const Footer = () => {
               In a world where we are overwhelmed by products made to break down
               or go out of style, we aim to go against that grain.
             </Text>
-            <Link
+            <NavLink
+            key="About"
+             to="/about"
               display="block"
               mb="2"
               _hover={{ textDecoration: "underline" }}
             >
               About Us
-            </Link>
+            </NavLink>
             <Link
               display="block"
               mb="2"
@@ -46,7 +53,7 @@ const Footer = () => {
               </Link>
             </Text>
           </Box>
-          <Box width={["100%", "50%"]}>
+          <Box overflow='hidden' width={["100%", "50%"]}>
             <Text fontSize="xl" fontWeight="bold" mb="4">
               SHOP
             </Text>
@@ -107,7 +114,7 @@ const Footer = () => {
               Final Sale
             </Link>
           </Box>
-          <Box width={["100%", "50%"]}>
+          <Box overflow='hidden' width={["100%", "50%"]}>
             <Text fontSize="xl" fontWeight="bold" mb="4">
               SUPPORT
             </Text>
@@ -168,7 +175,7 @@ const Footer = () => {
               Careers
             </Link>
           </Box>
-          <Box width={["100%", "50%"]}>
+          <Box overflow='hidden' width={["100%", "50%"]}>
             <Text fontSize="xl" fontWeight="bold" mb="4">
               STAY IN THE LOOP
             </Text>

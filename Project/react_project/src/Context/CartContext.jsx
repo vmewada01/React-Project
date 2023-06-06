@@ -15,10 +15,10 @@ export  function CartContextProvider({children}){
 
      const [count, setCount]= useState(0)
 //console.log(cart)
-
+   const [auth, setAuth]= useState(true)
 
     return (
-        <CartContext.Provider value={{updatedCartItems, cartItem, setCartItem,product,setProducts ,count, setCount}}>
+        <CartContext.Provider value={{auth, setAuth, updatedCartItems, cartItem, setCartItem,product,setProducts ,count, setCount}}>
             {children}
         </CartContext.Provider>
     )

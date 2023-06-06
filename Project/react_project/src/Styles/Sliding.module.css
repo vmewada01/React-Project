@@ -1,20 +1,2 @@
-.sliding-image-content {
-    overflow: hidden; /* Hide any overflow */
-  }
-  
-  .sliding-text {
-    position: absolute;
-    top: 50%;
-    left: -100%; /* Initial position outside the box */
-    animation: slideContent 5s linear infinite; /* Set the animation properties */
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  @keyframes slideContent {
-    0% { left: -100%; } /* Start position */
-    100% { left: 100%; } /* End position */
-  }
-  
+
+ 
