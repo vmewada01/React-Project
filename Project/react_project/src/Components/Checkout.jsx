@@ -3,6 +3,12 @@ import styles from "../Styles/Checkout.module.css";
 import {
   Alert,
   AlertDescription,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
   AlertIcon,
   AlertTitle,
   Box,
@@ -21,7 +27,7 @@ const Checkout = () => {
   const [disabled, setDisabled] = useState(false);
   const [data, setData] = useState(details);
   const [order, setOrder] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const totalprice = data.reduce((acc, curr) => acc + curr.prices, 0);
   // console.log(totalprice);
@@ -29,23 +35,28 @@ const Checkout = () => {
   let new_total = totalprice;
   const [pay, setPay] = useState(totalprice);
 
+  
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClose = () => setIsOpen(false);
+
+
   const applyCoupon = () => {
     //alert('hi')
     setInput(coupon);
 
     if (input == "VISHAL_22") {
-      alert("PROMO CODE APPLIED SUCCESSFULLY");
+      setIsOpen(true)
       new_total = Number(totalprice) - (Number(totalprice) * 30) / 100;
       setPay(new_total);
       setCoupon("");
       setDisabled(!disabled);
     }
   };
-  console.log(order)
+  console.log(order);
   const placeOrderfun = () => {
     setOrder(!order);
-    console.log(order)
-
+    console.log(order);
   };
 
   return (
@@ -59,7 +70,6 @@ const Checkout = () => {
       boxShadow="rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"
     >
       <div>
-       
         <div>
           <div>
             <h4>
@@ -70,7 +80,6 @@ const Checkout = () => {
             <br />
 
             <div>
-         
               <ul>
                 <li>
                   <Text fontSize="2xl">Total (USD)</Text>
@@ -86,14 +95,31 @@ const Checkout = () => {
                   onChange={(e) => setCoupon(e.target.value)}
                   placeholder="Promo Code: VISHAL_22"
                 />
+                
                 <Button
                   isDisabled={disabled}
                   color="white"
                   bg="green"
                   onClick={applyCoupon}
                 >
-                  Redeem
+               R E D E E M
                 </Button>
+
+                <AlertDialog isOpen={isOpen} onClose={onClose}>
+                  <AlertDialogOverlay>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>S U C C E S S</AlertDialogHeader>
+                      <AlertDialogBody>
+                        <Text fontSize='3xl'>Congratulation you have got 30% discount.....!!</Text>
+                      </AlertDialogBody>
+                      <AlertDialogFooter>
+                        <Button colorScheme="red" onClick={onClose}>
+                          Close
+                        </Button>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialogOverlay>
+                </AlertDialog>
               </div>
             </div>
           </div>
@@ -103,7 +129,11 @@ const Checkout = () => {
               <div>
                 <div>
                   <Text fontSize="2xl">First name</Text>
-                  <input type="text" placeholder="Enter your first name..!!"  required="" />
+                  <input
+                    type="text"
+                    placeholder="Enter your first name..!!"
+                    required=""
+                  />
                   <div>Valid first name is required.</div>
                 </div>
 
@@ -113,7 +143,6 @@ const Checkout = () => {
                     type="text"
                     id="lastName"
                     placeholder="Enter your last name..!!"
-                 
                     required=""
                   />
                   <div>Valid last name is required.</div>
@@ -223,7 +252,6 @@ const Checkout = () => {
                     id="credit"
                     name="paymentMethod"
                     type="radio"
-                 
                     required=""
                   />
                   <Text>Credit card</Text>
@@ -234,7 +262,6 @@ const Checkout = () => {
                     name="paymentMethod"
                     type="radio"
                     required=""
-               
                   />
                   <Text htmlFor="debit">Debit card</Text>
                 </div>
@@ -294,27 +321,32 @@ const Checkout = () => {
                 Place Order
               </Button>
               {order && (
-          <Alert
-            status="success"
-            variant="subtle"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-            height="200px"
-          >
-            <AlertIcon boxSize="40px" mr={0} />
-            <AlertTitle mt={4} mb={1} fontSize="lg">
-              Order Placed ..!!
-            </AlertTitle>
-            <AlertDescription maxWidth="sm">
-              You can track your order on our the give
-              link:"https://www.bluedart.com/tracking"
-            </AlertDescription>
-            <Button bg='green' color='white' onClick={()=> navigate("/")}>Move to Home Page</Button>
-          </Alert>
-        )}
-
+                <Alert
+                  status="success"
+                  variant="subtle"
+                  flexDirection="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  textAlign="center"
+                  height="200px"
+                >
+                  <AlertIcon boxSize="40px" mr={0} />
+                  <AlertTitle mt={4} mb={1} fontSize="lg">
+                    Order Placed ..!!
+                  </AlertTitle>
+                  <AlertDescription maxWidth="sm">
+                    You can track your order on our the give
+                    link:"https://www.bluedart.com/tracking"
+                  </AlertDescription>
+                  <Button
+                    bg="green"
+                    color="white"
+                    onClick={() => navigate("/")}
+                  >
+                    Move to Home Page
+                  </Button>
+                </Alert>
+              )}
             </form>
           </div>
         </div>

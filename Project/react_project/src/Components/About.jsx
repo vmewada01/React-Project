@@ -1,19 +1,36 @@
-import { Box, Heading } from "@chakra-ui/react";
-import React from "react";
+
+import { Box, Button, Heading } from "@chakra-ui/react";
+import React, { useState } from "react";
+
 
 const About = () => {
+
   return (
     <Box>
-      <Box width='50%' margin='auto' justifyContent='center' display='flex' flexDirection='column' gap='1rem'>
+      <Box
+        width="50%"
+        margin="auto"
+        justifyContent="center"
+        display="flex"
+        flexDirection="column"
+        gap="1rem"
+      >
         <Box>
           
-          <Heading style={{ textAlign: "left" , fontSize: "16px"}}>About Us</Heading>
+              <Heading style={{ textAlign: "left", fontSize: "16px" }}>
+            About Us
+          </Heading>
         </Box>
-        <Box display='flex' flexDirection='column' justifyContent='center' gap="1rem">
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          gap="1rem"
+        >
           <Heading style={{ fontWeight: "bold" }}>
             We Create Thoughtful Products That Are Worth Holding Onto.
           </Heading>
-          <p style={{ marginTop: "25px", fontSize: "13px"  }}>
+          <p style={{ marginTop: "25px", fontSize: "13px" }}>
             The products we use on a daily basis say something about the people
             we are. We believe many things in life get better with time; it is
             that spirit we try to infuse in everything we create. In a world
@@ -23,7 +40,9 @@ const About = () => {
         </Box>
         <Box className="explain_descript">
           <Box>
-            <Heading>We Focus on Value, Durability, and a Timeless Aesthetic.</Heading>
+            <Heading>
+              We Focus on Value, Durability, and a Timeless Aesthetic.
+            </Heading>
             <p style={{ marginTop: "25px", fontSize: "13px" }}>
               Our goods are based in value-driven design and quality
               manufacturing. All of us make a statement every time we buy
@@ -51,9 +70,10 @@ const About = () => {
         </Box>
 
         <Box className="explain_descript">
-      
           <Box>
-            <Heading>Our Most Valuable Assets Are The Relationships We’ve Built.</Heading>
+            <Heading>
+              Our Most Valuable Assets Are The Relationships We’ve Built.
+            </Heading>
             <p style={{ marginTop: "25px", fontSize: "13px" }}>
               We surround ourselves with incredibly talented, driven creatives
               that help us bring our products to life. This creative energy

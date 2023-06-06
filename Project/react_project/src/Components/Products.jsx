@@ -33,6 +33,7 @@ import {
   useDisclosure,
   useMediaQuery,
 } from "@chakra-ui/react";
+
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../Context/CartContext";
 
@@ -255,11 +256,15 @@ const Products = () => {
     },
   ];
 
- 
-
-  const {count, setCount, updatedCartItems, cartItem, setCartItem, product, setProducts } =
-    useContext(CartContext);
- 
+  const {
+    count,
+    setCount,
+    updatedCartItems,
+    cartItem,
+    setCartItem,
+    product,
+    setProducts,
+  } = useContext(CartContext);
 
   const [filteritem, setFilter] = useState(items);
 
@@ -288,6 +293,11 @@ const Products = () => {
   }
   //console.log(filterbyBrandMazama)
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClose = () => setIsOpen(false);
+  
+
   const addtoCart = (url, brand, price, head) => {
     //console.log(url,brand,price)
     setCount((prev) => prev + 1);
@@ -303,8 +313,7 @@ const Products = () => {
     setCartItem(updatedCartItems);
     console.log(cartItem);
     localStorage.setItem("items", JSON.stringify(cartItem));
-    alert(`Items added to Cart`);
-    
+    setIsOpen(true)
   };
 
   return (
@@ -413,15 +422,31 @@ const Products = () => {
               <Box>{abc.brand}</Box>
               <Box>$ {abc.price}</Box>
               <Box>
+                
                 <Button
                   onClick={() => {
                     //console.log(abc.url,abc.brand,abc.price)
                     addtoCart(abc.url, abc.brand, abc.price, abc.heading);
                   }}
                 >
-                  A D D _ T O _C A R T
+                  A D D_T O_C A R T
                 </Button>
-                
+
+                <AlertDialog isOpen={isOpen} onClose={onClose}>
+                  <AlertDialogOverlay>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>A L E R T</AlertDialogHeader>
+                      <AlertDialogBody>
+                     <Heading>  Item Added to the Cart</Heading>
+                      </AlertDialogBody>
+                      <AlertDialogFooter>
+                        <Button colorScheme="red" onClick={onClose}>
+                          Close
+                        </Button>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialogOverlay>
+                </AlertDialog>
               </Box>
             </Box>
           );

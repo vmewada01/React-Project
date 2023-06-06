@@ -13,14 +13,7 @@ const AlRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<EntireHome />} />
-      <Route
-        path="/products"
-        element={
-          <PrivateRoute>
-            <Products />
-          </PrivateRoute>
-        }
-      />
+      <Route path="/products" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route
@@ -36,11 +29,10 @@ const AlRoutes = () => {
         element={
           <PrivateRoute>
             <Checkout />
-          </PrivateRoute>
+            </PrivateRoute>
         }
       />
-<Route path="/about" element={<About />} />
-
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 };

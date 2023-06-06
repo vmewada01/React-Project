@@ -27,18 +27,6 @@ const Cart = () => {
   let new_total = totalprice;
   const [pay, setPay] = useState(totalprice);
 
-  const applyCoupon = () => {
-    // alert('hi')
-    setInput(coupon);
-
-    if (input == "VISHAL_22") {
-      alert("PROMO CODE APPLIED SUCCESSFULLY");
-      new_total = Number(totalprice) - (Number(totalprice) * 30) / 100;
-      setPay(new_total);
-      setCoupon("");
-      setDisabled(!disabled)
-    }
-  };
 
   //  console.log(data.length);
 
