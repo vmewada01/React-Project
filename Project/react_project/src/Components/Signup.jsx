@@ -39,6 +39,9 @@ const Signup = () => {
   const [signupdata, setSignupData] = useState([]);
   const new_data_signup = [...signupdata];
 
+
+  localStorage.setItem("signupDATA", JSON.stringify(signupdata));
+
   const handleUsernameChange = (event) => {
     const { first_name, last_name, email, password, name } = event.target;
 
@@ -51,12 +54,14 @@ const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Perform login logic here
-    setIndication(!indication);
+    
     console.log(username);
     new_data_signup.push(username);
     setSignupData(new_data_signup);
 
     localStorage.setItem("signupDATA", JSON.stringify(signupdata));
+    setIndication(!indication);
+   
   };
   const isError1 = username.first_name === "";
   const isError2 = username.last_name === "";

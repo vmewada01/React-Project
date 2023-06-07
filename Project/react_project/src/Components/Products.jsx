@@ -297,7 +297,7 @@ const Products = () => {
 
   const onClose = () => setIsOpen(false);
   
-
+  localStorage.setItem("items", JSON.stringify(cartItem));
   const addtoCart = (url, brand, price, head) => {
     //console.log(url,brand,price)
     setCount((prev) => prev + 1);

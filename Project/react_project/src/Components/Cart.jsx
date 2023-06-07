@@ -99,7 +99,7 @@ const Cart = () => {
          
         </Box>
 
-        {data &&
+        {data.length>0 &&
           data.map((abc) => {
             return (
               <Box

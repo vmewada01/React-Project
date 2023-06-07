@@ -37,7 +37,7 @@ const Login = () => {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-  const data_sig = JSON.parse(localStorage.getItem("signupDATA"));
+  const data_sig = JSON.parse(localStorage.getItem("signupDATA"))||[];
 
   const handleSubmit = (e) => {
     e.preventDefault();
